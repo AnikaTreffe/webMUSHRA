@@ -189,6 +189,9 @@ function startup(config) {
   }
   audioContext.volume = 1.0;
 
+  audioContext.audioWorklet.addModule('./lib/webmushra/audio/AudioProcessor.js');
+  audioContext.audioWorklet.addModule('./lib/webmushra/audio/MushraProcessor.js');
+
   audioFileLoader = new AudioFileLoader(audioContext, errorHandler);
   mushraValidator = new MushraValidator(errorHandler);
   dataSender = new DataSender(config);
